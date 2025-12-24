@@ -6,12 +6,11 @@ const getNanoId = async (size = 8) => {
     return nanoid(size);
 };
 
-
 async function handleGenerateNewShortURL(req, res) {
     const body = req.body;
     if (!body || !body.url) return res.status(400).json({ message: "url is required" });
 
-    const shortID = getNanoId(8);
+    const shortID = await getNanoId(8);
 
     await URL.create({
         shortId: shortID,
