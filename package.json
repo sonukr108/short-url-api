@@ -2,22 +2,21 @@
   "name": "short-url",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node /api/*.js",
-    "dev": "nodemon api/server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "private": true,
   "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "express": "^5.2.1",
     "mongoose": "^9.0.2",
-    "nanoid": "^5.1.6",
+    "nanoid": "^5.1.6"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.11"
   }
 }

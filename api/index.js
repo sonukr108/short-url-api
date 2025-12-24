@@ -11,7 +11,6 @@ connectToMongoDB(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected."))
   .catch((err) => console.error("MongoDB Error:", err));
 
-
 app.use(express.json());
 
 app.get("/", async (req, res) => {
@@ -20,5 +19,4 @@ app.get("/", async (req, res) => {
 
 app.use("/url", urlRoute);
 
-// ✅ IMPORTANT
 module.exports = app;
