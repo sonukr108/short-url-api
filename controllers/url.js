@@ -1,11 +1,17 @@
 const { nanoid } = require('nanoid');
 const URL = require('../models/url')
 
+const getNanoId = async (size = 8) => {
+    const { nanoid } = await import('nanoid');
+    return nanoid(size);
+};
+
+
 async function handleGenerateNewShortURL(req, res) {
     const body = req.body;
     if (!body || !body.url) return res.status(400).json({ message: "url is required" });
 
-    const shortID = nanoid(8);
+    const shortID = getNanoId(8);
 
     await URL.create({
         shortId: shortID,
