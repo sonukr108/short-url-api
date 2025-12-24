@@ -38,6 +38,11 @@ async function handleRedirectURL(req, res) {
     return res.redirect(entry.redirectUrl);
 }
 
+async function handleGetAllURL(req, res) {
+    const allUrls = await URL.find({});
+    return res.json(allUrls);
+}
+
 async function handleGetAnalytics(req, res) {
     const shortId = req.params.shortId;
     const result = await URL.findOne({ shortId });
@@ -48,4 +53,4 @@ async function handleGetAnalytics(req, res) {
     })
 }
 
-module.exports = { handleGenerateNewShortURL, handleRedirectURL, handleGetAnalytics };
+module.exports = { handleGenerateNewShortURL, handleRedirectURL, handleGetAnalytics, handleGetAllURL };
